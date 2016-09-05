@@ -24,8 +24,8 @@
 
 #include <lv2.h>
 
-#define GXPLUGIN_URI "http://guitarix.sourceforge.net/plugins/gx_hyper_"
-#define GXPLUGIN_UI_URI "http://guitarix.sourceforge.net/plugins/gx_hyper_gui"
+#define GXPLUGIN_URI "http://guitarix.sourceforge.net/plugins/gx_hyperion_"
+#define GXPLUGIN_UI_URI "http://guitarix.sourceforge.net/plugins/gx_hyperion_gui"
 
 
 typedef enum
@@ -33,7 +33,7 @@ typedef enum
    EFFECTS_OUTPUT,
    EFFECTS_INPUT,
    INTENSITY, 
-   VOLUME,
+   VOLUME, 
 } PortIndex;
 
 #endif //SRC_HEADERS_GXEFFECTS_H_

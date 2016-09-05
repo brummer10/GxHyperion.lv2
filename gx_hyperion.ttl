@@ -34,18 +34,18 @@
 	foaf:mbox <mailto:guitarix-developer@lists.sourceforge.net> ;
 	rdfs:seeAlso <http://guitarix.sourceforge.net> .
 
-<http://guitarix.sourceforge.net/plugins/gx_hyper_>
+<http://guitarix.sourceforge.net/plugins/gx_hyperion_>
 	a doap:Project ;
 	doap:maintainer <http://guitarix.sourceforge.net#me> ;
-	doap:name "Gx_hyper_" .
+	doap:name "Gx_hyperion_" .
 
-<http://guitarix.sourceforge.net/plugins/gx_hyper_#_hyper_>
+<http://guitarix.sourceforge.net/plugins/gx_hyperion_#_hyperion_>
     a lv2:Plugin ,
         lv2:DistortionPlugin ;
     doap:maintainer <http://guitarix.sourceforge.net#me> ;
     doap:name "GxHyperion";
     doap:license <http://opensource.org/licenses/isc> ;
-    lv2:project <http://guitarix.sourceforge.net/plugins/gx_hyper_> ;
+    lv2:project <http://guitarix.sourceforge.net/plugins/gx_hyperion_> ;
     lv2:optionalFeature lv2:hardRTCapable ;
       
     lv2:minorVersion 28;
@@ -88,5 +88,5 @@ rdfs:comment """
         lv2:name "VOLUME" ;
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
-        lv2:maximum 1 ;
+        lv2:maximum 1.0 ;
     ] .

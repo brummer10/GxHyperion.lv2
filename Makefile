@@ -16,12 +16,12 @@
 	endif
 
 	# set bundle name
-	NAME = gx_hyper
+	NAME = gx_hyperion
 	BUNDLE = $(NAME).lv2
 	VER = 0.1
 	# set compile flags
 	CXXFLAGS += -I. -fPIC -DPIC -O2 -Wall -funroll-loops -ffast-math -fomit-frame-pointer -fstrength-reduce $(SSE_CFLAGS)
-	LDFLAGS += -shared -lm 
+	LDFLAGS += -I. -shared -lm 
 	# invoke build files
 	OBJECTS = $(NAME).cpp 
 	## output style (bash colours)

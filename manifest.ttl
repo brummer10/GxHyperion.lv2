@@ -20,7 +20,7 @@
 @prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://guitarix.sourceforge.net/plugins/gx_hyper_#_hyper_>
+<http://guitarix.sourceforge.net/plugins/gx_hyperion_#_hyperion_>
     a lv2:Plugin ;
-    lv2:binary <gx_hyper.so>  ;
-    rdfs:seeAlso <gx_hyper.ttl> .
+    lv2:binary <gx_hyperion.so>  ;
+    rdfs:seeAlso <gx_hyperion.ttl> .

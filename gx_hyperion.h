@@ -25,7 +25,7 @@
 #include <lv2.h>
 
 #define GXPLUGIN_URI "http://guitarix.sourceforge.net/plugins/gx_hyperion_"
-#define GXPLUGIN_UI_URI "http://guitarix.sourceforge.net/plugins/gx_hyperion_gui"
+#define GXPLUGIN_UI_URI "http://guitarix.sourceforge.net/plugins/gx_hyperion_gui#_hyperion_"
 
 
 typedef enum

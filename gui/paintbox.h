@@ -17,8 +17,8 @@
  */
 
 
-#ifndef __PAINT_BOX_H__
-#define __PAINT_BOX_H__
+#ifndef __HYP_PAINT_BOX_H__
+#define __HYP_PAINT_BOX_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,12 +28,12 @@ extern "C" {
 
 G_BEGIN_DECLS
 
-#define GX_TYPE_PAINT_BOX            (gx_paint_box_get_type ())
-#define GX_PAINT_BOX(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GX_TYPE_PAINT_BOX, GxPaintBox))
-#define GX_PAINT_BOX_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GX_TYPE_PAINT_BOX, GxPaintBoxClass))
-#define GX_IS_PAINT_BOX(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GX_TYPE_PAINT_BOX))
-#define GX_IS_PAINT_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GX_TYPE_PAINT_BOX))
-#define GX_PAINT_BOX_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GX_TYPE_PAINT_BOX, GxPaintBoxClass))
+#define GX_TYPE_HYP_PAINT_BOX            (gx_paint_box_get_type ())
+#define GX_HYP_PAINT_BOX(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GX_TYPE_HYP_PAINT_BOX, GxPaintBox))
+#define GX_HYP_PAINT_BOX_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GX_TYPE_HYP_PAINT_BOX, GxPaintBoxClass))
+#define GX_IS_HYP_PAINT_BOX(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GX_TYPE_HYP_PAINT_BOX))
+#define GX_IS_HYP_PAINT_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GX_TYPE_HYP_PAINT_BOX))
+#define GX_HYP_PAINT_BOX_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GX_TYPE_HYP_PAINT_BOX, GxPaintBoxClass))
 
 typedef struct _GxPaintBox GxPaintBox;
 typedef struct _GxPaintBoxClass GxPaintBoxClass;
@@ -62,4 +62,4 @@ G_END_DECLS
 }
 #endif
 
-#endif /* __PAINT_BOX_H__ */
+#endif /* __HYP_PAINT_BOX_H__ */

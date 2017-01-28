@@ -58,9 +58,7 @@
 
     
 rdfs:comment """
-
-...
-
+Simulation of the Hyperion Bass Fuzz Pedal
 """;
 
     lv2:port  [

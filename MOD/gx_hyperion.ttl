@@ -89,7 +89,7 @@ Simulation of the Hyperion Bass Fuzz Pedal
         lv2:index 3 ;
         lv2:symbol "VOLUME" ;
         lv2:name "VOLUME" ;
-        lv2:default 0.5 ;
+        lv2:default 0.25 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
     ] .

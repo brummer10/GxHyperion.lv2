@@ -18,7 +18,19 @@
 
 #include "./gx_hyperion.h"
 
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+				define controller numbers
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
+
 #define CONTROLS 2
+
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+				define min/max if not defined already
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
 
 #ifndef min
 #define min(x, y) ((x) < (y) ? (x) : (y))
@@ -27,9 +39,13 @@
 #define max(x, y) ((x) < (y) ? (y) : (x))
 #endif
 
-// define some MACROS to read png data from binary stream 
-// png's been converted to object files with
-// ld -r -b binary name.png -o name.o
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+		define some MACROS to read png data from binary stream 
+		png's been converted to object files with
+		ld -r -b binary name.png -o name.o
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
 
 #ifdef __APPLE__
 #include <mach-o/getsect.h>
@@ -62,6 +78,12 @@
 
 // png's linked in as binarys
 EXTLD(pedal_png)
+
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+					define needed structs
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
 
 // struct definition to read binary data into cairo surface 
 typedef struct  {
@@ -116,6 +138,12 @@ typedef struct {
 	double xc;
 } gx_scale;
 
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+				the main LV2 handle->XWindow
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
+
 // main window struct
 typedef struct {
 	Display *dpy;
@@ -151,6 +179,12 @@ typedef struct {
 // forward declaration to resize window and cairo surface
 static void resize_event(gx_hyperionUI *ui);
 
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+		load png data from binary blob into cairo surface
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
+
 // read png data from binary blob
 cairo_status_t png_stream_reader (void *_stream, unsigned char *data, unsigned int length) {
 	binary_stream * stream = (binary_stream *) _stream;
@@ -166,6 +200,12 @@ cairo_surface_t *cairo_image_surface_create_from_stream (gx_hyperionUI* ui, cons
 	ui->png_stream.position = 0;
 	return cairo_image_surface_create_from_png_stream(&png_stream_reader, (void *)&ui->png_stream);
 }
+
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+				XWindow init the LV2 handle
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
 
 // init the xwindow and return the LV2UI handle
 static LV2UI_Handle instantiate(const LV2UI_Descriptor * descriptor,
@@ -275,6 +315,12 @@ static void cleanup(LV2UI_Handle handle) {
 	XCloseDisplay(ui->dpy);
 	free(ui);
 }
+
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+				XWindow drawing expose handling
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
 
 // draw knobs and simple switches
 static void knob_expose(gx_hyperionUI *ui,gx_controller* knob) {
@@ -503,6 +549,12 @@ static void controller_expose(gx_hyperionUI *ui, gx_controller * control) {
 	cairo_pop_group_to_source (ui->cr);
 	cairo_paint (ui->cr);
 }
+
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+				XWindow event handling
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
 
 // send event when active controller changed
 static void send_controller_event(gx_hyperionUI *ui, int controller) {
@@ -763,6 +815,8 @@ static int key_mapping(Display *dpy, XKeyEvent *xkey) {
 	else return 0;
 }
 
+/*------------- the event loop ---------------*/
+
 // general xevent handler
 static void event_handler(gx_hyperionUI *ui) {
 	XEvent xev;
@@ -867,7 +921,12 @@ static void event_handler(gx_hyperionUI *ui) {
 	}
 }
 
-// LV2 interface to host
+/*---------------------------------------------------------------------
+-----------------------------------------------------------------------	
+						LV2 interface
+-----------------------------------------------------------------------
+----------------------------------------------------------------------*/
+
 static int ui_idle(LV2UI_Handle handle) {
 	gx_hyperionUI* ui = (gx_hyperionUI*)handle;
 	event_handler(ui);
